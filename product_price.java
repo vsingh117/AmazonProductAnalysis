@@ -141,7 +141,7 @@ public class product_price extends Configured implements Tool {
 	    
 								double avg_price = total / 2;
 								
-								double bucket = Math.floor((double)avg_price/50.0)*50.0;
+								double bucket = Math.floor(avg_price/50.0)*50.0;
 								String bucketText = bucket + " to " + (bucket + 50.0);
 								
 								context.write(new Text(bucketText),one);
