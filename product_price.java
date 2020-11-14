@@ -141,36 +141,11 @@ public class product_price extends Configured implements Tool {
 	    
 								double avg_price = total / 2;
 								
-								if (avg_price<=50){
-									context.write(new Text("Less than $50"),one);
-								}
-								else if (avg_price>50 && avg_price<=100){
-									context.write(new Text("$50 to $100"),one);
-								}
-								else if (avg_price>100 && avg_price<=150){
-									context.write(new Text("$100 to $150"),one);
-								}
-								else if (avg_price>150 && avg_price<=200){
-									context.write(new Text("$150 to $200"),one);
-								}
-								else if (avg_price>200 && avg_price<=250){
-									context.write(new Text("$200 to $250"),one);
-								}
-								else if (avg_price>250 && avg_price<=300){
-									context.write(new Text("$250 to $300"),one);
-								}
-								else if (avg_price>300 && avg_price<=350){
-									context.write(new Text("$300 to $350"),one);
-								}
-								else if (avg_price>350 && avg_price<=400){
-									context.write(new Text("$350 to $400"),one);
-								}
-								else if (avg_price>400 && avg_price<=450){
-									context.write(new Text("$400 to $450"),one);
-								}
-								else{
-									context.write(new Text("Greater than $450"),one);
-								}
+								double bucket = Math.floor((double)avg_price/50.0)*50.0;
+								String bucketText = bucket + " to " + (bucket + 50.0);
+								
+								context.write(new Text(bucketText),one);
+								
 								
 								}
 								
