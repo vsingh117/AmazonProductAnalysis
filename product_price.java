@@ -119,9 +119,11 @@ public class product_price extends Configured implements Tool {
                                 if (price.trim().isEmpty()) {
                                         context.write(new Text("No-price-Value"),one);
                                 }
-								else{
 								
-								String price = jsonObject.get("price").getAsString();
+								else if (price.startsWith("<")) {
+                                        context.write(new Text("Bad-Values"),one);
+                                }
+								else{
 								price = price.replace("$", "");
 								
 								System.out.println("Price is: " + price);
@@ -138,7 +140,6 @@ public class product_price extends Configured implements Tool {
 								}
 	    
 								double avg_price = total / 2;
-								}
 								
 								if (avg_price<=50){
 									context.write(new Text("Less than $50"),one);
@@ -170,6 +171,10 @@ public class product_price extends Configured implements Tool {
 								else{
 									context.write(new Text("Greater than $450"),one);
 								}
+								
+								}
+								
+								
 
                                 // Here we increment a counter that we can read when the job is done
                                 rowsProcessed.increment(1);
