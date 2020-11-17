@@ -127,7 +127,15 @@ public class product_price extends Configured implements Tool {
 								price = price.replace("$", "");
 								
 								System.out.println("Price is: " + price);
-								
+								char someChar = '-';
+								int count = 0;
+ 
+								for (int i = 0; i < price.length(); i++) {
+    									if (price.charAt(i) == someChar) {
+        									count++;
+										    }
+								}
+									
 								String p_num[] = price.split("-");
 								List<String> al = new ArrayList<String>();
 								al = Arrays.asList(p_num);
@@ -139,7 +147,13 @@ public class product_price extends Configured implements Tool {
 								total = total + Float.parseFloat(s);
 								}
 	    
-								double avg_price = total / 2;
+								double avg_price = 0.0;
+								if(count == 0){
+								    avg_price = total;
+									}
+								else{
+								    avg_price = total / 2;
+								}
 								
 								double bucket = Math.floor(avg_price/50.0)*50.0;
 								String bucketText = bucket + " to " + (bucket + 50.0);
