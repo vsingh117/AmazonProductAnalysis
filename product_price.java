@@ -126,7 +126,6 @@ public class product_price extends Configured implements Tool {
 								else{
 								price = price.replace("$", "");
 								
-								System.out.println("Price is: " + price);
 								char someChar = '-';
 								int count = 0;
  
@@ -143,7 +142,6 @@ public class product_price extends Configured implements Tool {
 								double total = 0;
 								
 								for(String s: al){
-								System.out.println(s);
 								total = total + Float.parseFloat(s);
 								}
 	    
