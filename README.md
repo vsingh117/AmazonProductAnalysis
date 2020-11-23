@@ -7,7 +7,7 @@ Produce 10 evenly split buckets.  Please parse out any bad values (HTML).  For p
 
 Following is the output :-
 
-Range	Number of records
+Range	Number of records</br>
 78.0 to 80.0     23
 </br>
 58.0 to 60.0     40
