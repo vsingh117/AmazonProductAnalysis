@@ -114,7 +114,7 @@ public class Amazon_review extends Configured implements Tool {
 				String reviewText = jsonObject.get("reviewText").getAsString();
 
 				Integer text_len = reviewText.length();
-				context.write(new (text_len),one);
+				context.write(new Text(text_len),one);
 
     
 				
