@@ -110,6 +110,13 @@ public class positive_review extends Configured implements Tool {
 				JsonElement jsonTree = parser.parse(jsonString);
                                 
 				JsonObject jsonObject = jsonTree.getAsJsonObject();
+
+				String reviewText = jsonObject.get("reviewText").getAsString();
+
+				t_len = reviewText.length();
+				context.write(new t_len,one);
+
+
 				
                                 String overall= jsonObject.get("overall").getAsString();
 	                        String s1= "1.0";
