@@ -113,6 +113,13 @@ public class Amazon_review extends Configured implements Tool {
 
 				String reviewText = jsonObject.get("reviewText").getAsString();
 
+				if (reviewText.startsWith("<")) {
+                                        String pattern = ".*alt=\"([^\"]*)\".*";
+                                        Pattern p = Pattern.compile(pattern);
+                                        Matcher m = p.matcher(reviewText);
+                                        while(m.find()) { reviewText = m.group(1); }
+                                }
+
 				Integer text_ln = reviewText.length();
 				String text_len = String.valueOf(text_ln);
 				context.write(new Text(text_len),one);
