@@ -35,11 +35,11 @@ import org.slf4j.LoggerFactory;
  */
 public class Amazon_review extends Configured implements Tool {
 	// Just used for logging
-	protected static final Logger LOG = LoggerFactory.getLogger(positive_review.class);
+	protected static final Logger LOG = LoggerFactory.getLogger(Amazon_review.class);
 
 	// This is the execution entry point for Java programs
 	public static void main(String[] args) throws Exception {
-		int res = ToolRunner.run(HBaseConfiguration.create(), new positive_review(), args);
+		int res = ToolRunner.run(HBaseConfiguration.create(), new Amazon_review(), args);
 		System.exit(res);
 	}
 
@@ -50,8 +50,8 @@ public class Amazon_review extends Configured implements Tool {
 		}
 
 		// Now we create and configure a map-reduce "job"     
-		Job job = Job.getInstance(getConf(), "positive_review");
-		job.setJarByClass(positive_review.class);
+		Job job = Job.getInstance(getConf(), "Amazon_review");
+		job.setJarByClass(Amazon_review.class);
     
     		// By default we are going to can every row in the table
 		Scan scan = new Scan();
@@ -96,7 +96,7 @@ public class Amazon_review extends Configured implements Tool {
 		@Override
 		protected void setup(Context context) {
 			parser = new JsonParser();
-			rowsProcessed = context.getCounter("positive_review", "Rows Processed");
+			rowsProcessed = context.getCounter("Amazon_review", "Rows Processed");
     		}
   
   		// This "map" method is called with every row scanned.  
