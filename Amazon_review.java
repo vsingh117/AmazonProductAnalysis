@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  * This Map-Reduce code will go through every Amazon review in rfox12:reviews
  * It will then output data on the top-level JSON keys
  */
-public class positive_review extends Configured implements Tool {
+public class Amazon_review extends Configured implements Tool {
 	// Just used for logging
 	protected static final Logger LOG = LoggerFactory.getLogger(positive_review.class);
 
