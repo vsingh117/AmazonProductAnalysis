@@ -20,7 +20,9 @@ Range	    Number of records
 88.0 to 1000.0	491774 </br>
 
 Q-2) What is the distribution of review lengths (in number of words)?  Produce 10 evenly split buckets and make a histogram.  Please parse out any HTML and "stop words".
+
 Ans :- Folowing is the output :- 
+
 Review length range	Record count
 0 to 19              16165643 </br>
 20 to 40             15657846 </br>
